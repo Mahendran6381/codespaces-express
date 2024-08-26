@@ -24,10 +24,8 @@ app.post('/register',(req,res)=>{
             handleError(err)
           }
           if(result){
-          const jwtToken = jwt.sign({email:userEmail},process.env.JWT_TOKEN);
-          console.log(jwtToken,"TOken")
+          const jwtToken = jwt.sign({user:rec},process.env.JWT_TOKEN);
           res.cookie("token",jwtToken);
-          res.cookie("hello","hil")
           res.send(200)
           }else{
             console.log("notauthenticate")

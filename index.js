@@ -25,12 +25,8 @@ app.get('/', (req, res) => {
 
 })
 
-
-// app.use('/meet', verifyJWT); 
-
 app.get('/meet', verifyJWT,(req, res) => {
-  console.log(req.cookies);
-  res.json({name:"mahi"})
+  res.json(res.locals.user)
 });
 
 
